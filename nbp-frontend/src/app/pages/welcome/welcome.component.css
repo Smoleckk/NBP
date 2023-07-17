@@ -1,0 +1,55 @@
+.form-container {
+    margin-top: 100px;
+
+}
+
+mat-card {
+    width: 80%;
+    height: 70vh;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.half-width {
+}
+
+.left-side {
+    width: 40%;
+    color: #1a1818;
+    background-image: url("cash2.jpg");
+    background: linear-gradient(0deg, rgba(8, 1, 37, 0.63), rgba(8, 44, 145, 0.781)), url(cash2.jpg);
+    display: flex;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 32px;
+    color: white;
+}
+p{
+    font-size:22px;
+    color: white;
+}
+
+.right-side{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+mat-card-title{
+    font-size: 26px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}

@@ -1,0 +1,12 @@
+.container {
+    width: 80%;
+    margin: auto;
+    
+}
+
+h1 {
+    margin: 100px 0 40px 0;
+    font-size: 26px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
