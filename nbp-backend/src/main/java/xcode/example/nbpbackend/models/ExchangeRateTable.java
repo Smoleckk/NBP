@@ -16,9 +16,4 @@ public class ExchangeRateTable {
     private String effectiveDate;
     private List<ExchangeRate> rates;
 
-    public ExchangeRateTable(String table, String no, String effectiveDate) {
-        this.table = table;
-        this.no = no;
-        this.effectiveDate = effectiveDate;
-    }
 }
