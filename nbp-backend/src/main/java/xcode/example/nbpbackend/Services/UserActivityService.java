@@ -2,6 +2,7 @@ package xcode.example.nbpbackend.Services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -16,28 +17,28 @@ import java.util.stream.Collectors;
 public class UserActivityService implements IUserActivityService {
 
     private final UserActivityRepository userActivityRepository;
+    private final RestTemplate restTemplate;
 
-    public UserActivityService(UserActivityRepository userActivityRepository) {
+    @Value("${nbp.url}")
+    private String nbpUrl;
+    public UserActivityService(UserActivityRepository userActivityRepository, RestTemplate restTemplate) {
         this.userActivityRepository = userActivityRepository;
+        this.restTemplate = restTemplate;
     }
+
 
     public CurrentResponse getCurrent(CurrentRequest currentRequest) {
         if (currentRequest.getName() == null || currentRequest.getCurrency() == null) {
             throw new IllegalArgumentException("Name and currency must not be null");
         }
 
-        RestTemplate restTemplate = new RestTemplate();
-        String url = "http://api.nbp.pl/api/exchangerates/tables/A?format=json";
-
         try {
-            ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+            ResponseEntity<String> response = restTemplate.getForEntity(nbpUrl, String.class);
             String json = response.getBody();
 
-            // Teraz możesz zmapować JSON na obiekt ExchangeRateTable
             ObjectMapper objectMapper = new ObjectMapper();
             ExchangeRateTable[] exchangeRateTables = objectMapper.readValue(json, ExchangeRateTable[].class);
 
-            // Dostęp do danych
             ExchangeRateTable exchangeRateTable = exchangeRateTables[0];
             List<ExchangeRate> exchangeRates = exchangeRateTable.getRates();
             ExchangeRate exchangeRate = exchangeRates.stream().filter(e -> currentRequest.getCurrency().equals(e.getCode())).findAny().orElse(null);
@@ -49,10 +50,10 @@ public class UserActivityService implements IUserActivityService {
                 return new CurrentResponse(exchangeRate.getMid());
             }
         } catch (Exception e) {
-            throw new RuntimeException("Nie udało się pobrać danych walutowych.", e);
+            throw new RuntimeException("Failed to retrieve currency data.", e);
         }
 
-        throw new RuntimeException("Nie znaleziono odpowiedniego kursu walutowego.");
+        throw new RuntimeException("No appropriate exchange rate found.");
     }
     public List<UserActivityDTO> getUsersActivity(){
         return userActivityRepository.findAll().stream().map(e->new UserActivityDTO(e.getName(),e.getRequestDate(),e.getCurrency(),e.getValue())).collect(Collectors.toList());
