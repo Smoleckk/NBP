@@ -1,12 +1,18 @@
 .container {
-    width: 80%;
-    margin: auto;
-    height: 90vh;
+  width: 80%;
+  margin: auto;
+  height: 90vh;
 }
 
 h1 {
-    margin: 100px 0 40px 0;
-    font-size: 26px;
-    margin-bottom: 30px;
+  margin: 100px 0 40px 0;
+  font-size: 26px;
+  font-weight: bold;
+}
+@media only screen and (max-width: 600px) {
+  h1 {
+    margin: 50px 0 20px 0;
+    font-size: 16px;
     font-weight: bold;
+  }
 }

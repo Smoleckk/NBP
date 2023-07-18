@@ -1,3 +1,3 @@
 export interface CurrentResponse {
-    value: number;
-  }
+  value: number;
+}

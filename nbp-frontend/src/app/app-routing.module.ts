@@ -5,18 +5,17 @@ import { CurrenciesComponent } from './pages/currencies/currencies.component';
 
 const routes: Routes = [
   {
-    component:CurrenciesComponent,
-    path:''
+    component: CurrenciesComponent,
+    path: '',
   },
   {
-    component:UsersActivityComponent,
-    path:'user-activity'
+    component: UsersActivityComponent,
+    path: 'user-activity',
   },
-  
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

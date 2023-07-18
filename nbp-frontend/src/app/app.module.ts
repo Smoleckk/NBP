@@ -52,9 +52,9 @@ import { CurrenciesComponent } from './pages/currencies/currencies.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
