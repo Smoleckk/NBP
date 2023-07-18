@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { UsersActivityComponent } from './pages/users-activity/users-activity.component';
+import { CurrenciesComponent } from './pages/currencies/currencies.component';
 
 const routes: Routes = [
   {
-    component:WelcomeComponent,
+    component:CurrenciesComponent,
     path:''
   },
   {

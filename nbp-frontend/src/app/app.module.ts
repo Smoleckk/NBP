@@ -4,13 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavigationComponent } from './navigation/navigation.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card';
@@ -24,14 +22,16 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UsersActivityComponent } from './pages/users-activity/users-activity.component';
 import { MatTableModule } from '@angular/material/table';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CurrenciesComponent } from './pages/currencies/currencies.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
-    WelcomeComponent,
     DialogComponent,
     UsersActivityComponent,
+    NavbarComponent,
+    CurrenciesComponent,
   ],
   imports: [
     BrowserModule,

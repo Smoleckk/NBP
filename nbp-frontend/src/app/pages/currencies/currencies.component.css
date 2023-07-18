@@ -1,5 +1,6 @@
 .form-container {
-    margin-top: 100px;
+    padding-top: 100px;
+    height: 90vh;
 
 }
 
@@ -15,14 +16,10 @@ mat-card {
     width: 100%;
 }
 
-.half-width {
-}
-
 .left-side {
     width: 40%;
     color: #1a1818;
-    background-image: url("cash2.jpg");
-    background: linear-gradient(0deg, rgba(8, 1, 37, 0.63), rgba(8, 44, 145, 0.781)), url(cash2.jpg);
+    background: linear-gradient(0deg, rgba(8, 1, 37, 0.63), rgba(8, 44, 145, 0.781)), url("../../resources/cash.jpg");
     display: flex;
     background-size: cover;
     justify-content: center;
@@ -53,3 +50,28 @@ mat-card-title{
     margin-bottom: 30px;
     font-weight: bold;
 }
+@media only screen and (max-width: 600px) {
+    .form-container {
+        padding: 20px 0;
+    }
+    mat-card {
+        flex-direction: column;
+        height: 100%;
+    }
+    .left-side, .right-side {
+    width: 100%;
+    }
+    h2 {
+        font-size: 16px;
+        color: white;
+    }
+    p{
+        font-size:12px;
+        color: white;
+    }
+    mat-card-title{
+        font-size: 14px;
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+  }

@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 import { CurrentRequest } from 'src/app/models/currentRequest';
 import { CurrentResponse } from 'src/app/models/currentResponse';
 import { CurrentService } from 'src/app/services/current.service';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
+
 @Component({
-  selector: 'app-welcome',
-  templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css']
+  selector: 'app-currencies',
+  templateUrl: './currencies.component.html',
+  styleUrls: ['./currencies.component.css']
 })
-export class WelcomeComponent {
+export class CurrenciesComponent {
 
   constructor(private formBuilder: FormBuilder, private currentService: CurrentService, private dialog: MatDialog) { }
 
@@ -45,6 +46,3 @@ export class WelcomeComponent {
   }
 
 }
-
-
-
